@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cohort7</string>
+    <string name="hello_world">Hello World</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="drawer_opened">Select An Item</string>
+    <string name="drawer_closed">Cohort 7</string>
+    <string name="exhibits_feed">https://gist.githubusercontent.com/Korirmitchelle/6d0f79ae9d689a995fb043745a458114/raw/aed785f9f4beb65150671a913185ea5ee2030a6b/</string>
+
+</resources>
+
