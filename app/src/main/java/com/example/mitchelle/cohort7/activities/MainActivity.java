@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void displayInitialFragment() {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, ExhibitsListFragment.getInstance()).commit();
-        mCurrentFragmentTitle = "Exhibits";
+        mCurrentFragmentTitle = "Exhibits";  /*doesnt need to load if on the same page*/
     }
     @Override
     public void onPostCreate(Bundle savedInstanceState) {

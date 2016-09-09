@@ -1,14 +1,14 @@
-/*
+
 package com.example.mitchelle.cohort7.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-*/
-/**
- * Created by mitchelle on 9/1/16.
- *//*
 
-public class Animal implements Parcelable {
+
+  /*Created by mitchelle on 9/1/16.*/
+
+
+public class Animal implements Parcelable {  /*parcelable to enable to pass model objects througou app*/
     private String first_name;
     private String gender;
     private String About;
@@ -84,7 +84,7 @@ public class Animal implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         applyDefaultValues();
 
-        dest.writeString( first_name );
+        dest.writeString( first_name );  /*destination parcelable object*/
         dest.writeString( gender );
         dest.writeString( About );
         dest.writeString( email );
@@ -116,4 +116,4 @@ public class Animal implements Parcelable {
             return new Animal[size];
         }
     };
-}*/
+}
