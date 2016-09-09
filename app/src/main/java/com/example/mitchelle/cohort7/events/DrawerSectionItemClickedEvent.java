@@ -9,5 +9,7 @@ public class DrawerSectionItemClickedEvent {
     public DrawerSectionItemClickedEvent(String section){
         this.section = section;
     }
-
+/*
+used by eventbus to share informaion from navigation drawer to the rest of app
+*/
 }

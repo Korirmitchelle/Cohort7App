@@ -1,10 +1,13 @@
+/*
 package com.example.mitchelle.cohort7.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+*/
 /**
  * Created by mitchelle on 9/1/16.
- */
+ *//*
+
 public class Animal implements Parcelable {
     private String first_name;
     private String gender;
@@ -113,4 +116,4 @@ public class Animal implements Parcelable {
             return new Animal[size];
         }
     };
-}
+}*/

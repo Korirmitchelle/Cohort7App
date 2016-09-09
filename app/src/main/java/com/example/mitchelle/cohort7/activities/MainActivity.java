@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override      /*Starts up the event bus to listen and post message*/
     protected void onStart() {
         super.onStart();
         EventBus.getInstance().register(this);

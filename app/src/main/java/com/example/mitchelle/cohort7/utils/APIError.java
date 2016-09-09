@@ -1,8 +1,11 @@
+/*
 package com.example.mitchelle.cohort7.utils;
 
+*/
 /**
  * Created by mitchelle on 9/2/16.
- */
+ *//*
+
 public class APIError {
     private int statusCode;
     private String message;
@@ -17,3 +20,4 @@ public class APIError {
         return message;
     }
 }
+*/
