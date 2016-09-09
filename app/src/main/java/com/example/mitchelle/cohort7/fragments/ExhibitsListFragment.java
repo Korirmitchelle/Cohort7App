@@ -36,26 +36,37 @@ public class ExhibitsListFragment  extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
 Retrofit retrofit=new Retrofit.Builder()
-        .baseUrl(String.valueOf(R.string.exhibits_feed)+("/"))
+        .baseUrl("https://gist.githubusercontent.com/Korirmitchelle/6d0f79ae9d689a995fb043745a458114/raw/aed785f9f4beb65150671a913185ea5ee2030a6b/")
+        .addConverterFactory(GsonConverterFactory.create())
         .build();
 
         AnimalApiInterface animalApiInterface=retrofit.create(AnimalApiInterface.class);
-
-        animalApiInterface.getStreams(new Callback<List<Animal>>() {
+        animalApiInterface.getStreams().enqueue(new Callback<List<Animal>>() {
             @Override
             public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
-                if (call==null|| call.isExecuted())
-                return;
-                /*for (Animal animal:call){
-                    Log.e("Cohort",animal.getName());
-                }*/
+
             }
 
             @Override
             public void onFailure(Call<List<Animal>> call, Throwable t) {
-             Log.e("Cohort","Retrofit error: ");
+
+            } /* */ });
+
+
+        /*animalApiInterface.getStreams(new Callback<List<Animal>>() {
+            @Override
+            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
+                Log.d("CallBack", " response is " + response);
+                *//*for (Animal animal:call){
+                    Log.e("Cohort",animal.getName());
+                }*//*
             }
-        });
+
+            @Override
+            public void onFailure(Call<List<Animal>> call, Throwable t) {
+                Log.d("CallBack", " Throwable is " +t);            }
+        }*/
+
     }
 }
 

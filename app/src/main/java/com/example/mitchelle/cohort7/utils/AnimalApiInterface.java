@@ -21,10 +21,11 @@ import retrofit2.http.GET;
 
 public interface AnimalApiInterface {
     @GET("/Exhibits.json")
+    Call<List<Animal>> getStreams();
 
 
-   void getStreams(Callback<List<Animal>> callback);
+   /*void getStreams(Callback<List<Animal>> callback);
 
-
+*/
 }
 
