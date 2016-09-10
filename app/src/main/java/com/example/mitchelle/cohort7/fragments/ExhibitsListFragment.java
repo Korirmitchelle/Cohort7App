@@ -6,6 +6,7 @@ import android.support.v4.app.ListFragment;
 import android.util.Log;
 
 
+import com.example.mitchelle.cohort7.adapters.ExhibitsAdapter;
 import com.example.mitchelle.cohort7.models.Animal;
 
 
@@ -26,6 +27,8 @@ import com.example.mitchelle.cohort7.utils.AnimalApiInterface;
   /*Created by mitchelle on 9/1/16.*/
 
 public class ExhibitsListFragment  extends ListFragment {
+
+    private ExhibitsAdapter mAdapter;
     public static ExhibitsListFragment getInstance(){
         ExhibitsListFragment fragment = new ExhibitsListFragment();
         return fragment;
@@ -35,15 +38,31 @@ public class ExhibitsListFragment  extends ListFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        setListShown(false);
+        mAdapter=new ExhibitsAdapter(getActivity(),0);
+
 Retrofit retrofit=new Retrofit.Builder()
         .baseUrl("https://gist.githubusercontent.com/Korirmitchelle/6d0f79ae9d689a995fb043745a458114/raw/aed785f9f4beb65150671a913185ea5ee2030a6b/")
         .addConverterFactory(GsonConverterFactory.create())
         .build();
 
+
+
         AnimalApiInterface animalApiInterface=retrofit.create(AnimalApiInterface.class);
         animalApiInterface.getStreams().enqueue(new Callback<List<Animal>>() {
             @Override
-            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
+            public void onResponse(Call<List<Animal>> animals, Response<List<Animal>> response) {
+                if (animals==null|| !response.isSuccessful()) {
+                    return;
+                }
+
+                for (Animal animal:response.body()) {
+                    mAdapter.add(animal);
+                }
+
+                mAdapter.notifyDataSetChanged();
+                setListAdapter(mAdapter);
+                setListShown(true);
 
             }
 

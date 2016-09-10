@@ -20,7 +20,7 @@ import retrofit2.http.GET;
  */
 
 public interface AnimalApiInterface {
-    @GET("/Exhibits.json")
+    @GET("Exhibits.json")
     Call<List<Animal>> getStreams();
 
 
