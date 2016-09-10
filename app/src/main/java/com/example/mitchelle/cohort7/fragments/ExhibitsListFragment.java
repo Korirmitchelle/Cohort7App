@@ -1,11 +1,15 @@
 package com.example.mitchelle.cohort7.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
 
 
+import com.example.mitchelle.cohort7.activities.ExhibitsAbout;
 import com.example.mitchelle.cohort7.adapters.ExhibitsAdapter;
 import com.example.mitchelle.cohort7.models.Animal;
 
@@ -69,23 +73,21 @@ Retrofit retrofit=new Retrofit.Builder()
             @Override
             public void onFailure(Call<List<Animal>> call, Throwable t) {
 
-            } /* */ });
+            }  });
+        
 
 
-        /*animalApiInterface.getStreams(new Callback<List<Animal>>() {
-            @Override
-            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
-                Log.d("CallBack", " response is " + response);
-                *//*for (Animal animal:call){
-                    Log.e("Cohort",animal.getName());
-                }*//*
-            }
 
-            @Override
-            public void onFailure(Call<List<Animal>> call, Throwable t) {
-                Log.d("CallBack", " Throwable is " +t);            }
-        }*/
 
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent intent=new Intent(getActivity(), ExhibitsAbout.class);
+       /* pass info from list to new activity*/
+        intent.putExtra(ExhibitsAbout.EXTRA_MEMBERS,mAdapter.getItem(position));
+        startActivity(intent);
     }
 }
 
