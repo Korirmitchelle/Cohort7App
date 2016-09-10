@@ -52,22 +52,6 @@ public class  GalleryFragment extends ListFragment {
 
             }
         });
-        /*galleryApi.getStreams().enqueue(new Callback<List<GalleryImage>>() {
-            @Override
-            public void onResponse(Call<List<GalleryImage>> img, Response<List<GalleryImage>> response) {
-                if (img==null||!response.isSuccessful()){
-
-                    return;
-                }
-                for (GalleryImage im:response.body()){
-            }
-
-            @Override
-            public void onFailure(Call<List<GalleryImage>> img, Throwable t) {
-
-            }
-        };
-*/
 
 
     }
