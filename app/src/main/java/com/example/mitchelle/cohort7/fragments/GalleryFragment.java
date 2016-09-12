@@ -1,5 +1,6 @@
 package com.example.mitchelle.cohort7.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,11 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.mitchelle.cohort7.R;
+import com.example.mitchelle.cohort7.activities.GalleryDetailActivity;
 import com.example.mitchelle.cohort7.adapters.GalleryImageAdapter;
-import com.example.mitchelle.cohort7.models.Animal;
 import com.example.mitchelle.cohort7.models.GalleryImage;
 import com.example.mitchelle.cohort7.utils.GalleryApi;
 
@@ -27,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by mitchelle on 9/1/16.
  */
-public class  GalleryFragment extends ListFragment {
+public class  GalleryFragment extends ListFragment implements AdapterView.OnItemClickListener{
     private GridView myGridview;  /*creating objects to represent adapter and gridview*/
     private GalleryImageAdapter myAdapter;
 
@@ -47,6 +49,9 @@ public class  GalleryFragment extends ListFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         myGridview=(GridView) view.findViewById(R.id.grid);
+
+        myGridview.setOnItemClickListener(this);
+        myGridview.setDrawSelectorOnTop(true);
     }
 
     @Override
@@ -83,6 +88,16 @@ myAdapter=new GalleryImageAdapter(getActivity(),0);
             }
         });
 
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        GalleryImage image= (GalleryImage) parent.getItemAtPosition(position);
+        Intent intent=new Intent(getActivity(), GalleryDetailActivity.class);
+        intent.putExtra(GalleryDetailActivity.EXTRA_Image,image.getImage());
+        intent.putExtra(GalleryDetailActivity.EXTRA_CAPTON,image.getCaption());
+        startActivity(intent);
 
     }
 }
