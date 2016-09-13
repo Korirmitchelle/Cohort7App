@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 
 import com.example.mitchelle.cohort7.R;
 import com.example.mitchelle.cohort7.activities.GalleryDetailActivity;
@@ -29,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by mitchelle on 9/1/16.
  */
-public class  GalleryFragment extends ListFragment implements AdapterView.OnItemClickListener{
+public class  GalleryFragment extends Fragment implements AdapterView.OnItemClickListener{
     private GridView myGridview;  /*creating objects to represent adapter and gridview*/
     private GalleryImageAdapter myAdapter;
 
@@ -41,17 +42,25 @@ public class  GalleryFragment extends ListFragment implements AdapterView.OnItem
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_gallery_grid,container,false);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+/*
+        return inflater.inflate(R.layout.fragment_gallery_grid,null);
+*/
+View view=inflater.inflate(R.layout.fragment_gallery_grid,container,false);
         myGridview=(GridView) view.findViewById(R.id.grid);
 
         myGridview.setOnItemClickListener(this);
+
         myGridview.setDrawSelectorOnTop(true);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
     }
 
     @Override
@@ -63,7 +72,7 @@ myAdapter=new GalleryImageAdapter(getActivity(),0);
         populate adapter
 */
         Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl(String.valueOf(R.string.gallery_feed))
+                .baseUrl("https://gist.githubusercontent.com/Korirmitchelle/882b88df934bf05767d5ca6edd626f0e/raw/2859e2c137c91e3c39cc1d9d8b14980c38d65290/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

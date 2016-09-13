@@ -8,7 +8,7 @@ import android.os.Parcelable;
   /*Created by mitchelle on 9/1/16.*/
 
 
-public class Animal implements Parcelable {  /*parcelable to enable to pass model objects througou app*/
+public class Animal implements Parcelable {  /*parcelable to enable to pass model objects througout app*/
     private String first_name;
     private String gender;
     private String About;

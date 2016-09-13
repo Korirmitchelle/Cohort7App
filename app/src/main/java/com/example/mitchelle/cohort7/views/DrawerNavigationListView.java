@@ -1,12 +1,15 @@
 package com.example.mitchelle.cohort7.views;
 
+
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.mitchelle.cohort7.R;
 import com.example.mitchelle.cohort7.events.DrawerSectionItemClickedEvent;
 import com.example.mitchelle.cohort7.utils.EventBus;
 import com.example.mitchelle.cohort7.adapters.DrawerNavigationListAdapter;
@@ -22,7 +25,6 @@ public class DrawerNavigationListView extends ListView implements AdapterView.On
     public DrawerNavigationListView(Context context, AttributeSet attrs){
         this(context,attrs,0);
     }
-
 
 
 
