@@ -107,6 +107,7 @@ myAdapter=new GalleryImageAdapter(getActivity(),0);
         intent = new Intent(getActivity(),GalleryDetailActivity.class);
         intent.putExtra(GalleryDetailActivity.EXTRA_Image,image.getImage());
         intent.putExtra(GalleryDetailActivity.EXTRA_CAPTON,image.getCaption());
+        Log.d(GalleryFragment.class.getSimpleName(),GalleryDetailActivity.EXTRA_CAPTON + image.getImage());
         startActivity(intent);
 
     }

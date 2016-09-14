@@ -17,7 +17,8 @@
      <ImageView
          android:id="@+id/imagesss"
          android:layout_width="match_parent"
-         android:layout_height="match_parent"
+         android:layout_height="200dp"
+         android:paddingTop="14dp"
          android:scaleType="fitCenter"/>
 
      <TextView
