@@ -26,7 +26,7 @@ public class GalleryDetailActivity extends AppCompatActivity{
         Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         myCaptionTextView=(TextView) findViewById(R.id.caption);
         myImageView=(ImageView) findViewById(R.id.imagesss);
 

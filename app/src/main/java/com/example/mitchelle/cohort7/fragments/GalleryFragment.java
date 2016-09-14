@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
 
 import com.example.mitchelle.cohort7.R;
 import com.example.mitchelle.cohort7.activities.GalleryDetailActivity;
@@ -44,21 +42,23 @@ public class  GalleryFragment extends Fragment implements AdapterView.OnItemClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
 
-/*
-        return inflater.inflate(R.layout.fragment_gallery_grid,null);
-*/
-View view=inflater.inflate(R.layout.fragment_gallery_grid,container,false);
-        myGridview=(GridView) view.findViewById(R.id.grid);
 
-        myGridview.setOnItemClickListener(this);
+        return inflater.inflate(R.layout.fragment_gallery_grid,container,false);
 
-        myGridview.setDrawSelectorOnTop(true);
-        return view;
+
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        myGridview=(GridView) view.findViewById(R.id.grid);
+
+        myGridview.setOnItemClickListener(this);
+
+        myGridview.setDrawSelectorOnTop(true);
+
+
 
 
     }
@@ -103,7 +103,8 @@ myAdapter=new GalleryImageAdapter(getActivity(),0);
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         GalleryImage image= (GalleryImage) parent.getItemAtPosition(position);
-        Intent intent=new Intent(getActivity(), GalleryDetailActivity.class);
+        Intent intent;
+        intent = new Intent(getActivity(),GalleryDetailActivity.class);
         intent.putExtra(GalleryDetailActivity.EXTRA_Image,image.getImage());
         intent.putExtra(GalleryDetailActivity.EXTRA_CAPTON,image.getCaption());
         startActivity(intent);
