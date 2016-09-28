@@ -46,7 +46,7 @@ public class ExhibitsListFragment  extends ListFragment {
         mAdapter=new ExhibitsAdapter(getActivity(),0);
 
 Retrofit retrofit=new Retrofit.Builder()
-        .baseUrl("https://gist.githubusercontent.com/Korirmitchelle/6d0f79ae9d689a995fb043745a458114/raw/aed785f9f4beb65150671a913185ea5ee2030a6b/")
+        .baseUrl("https://gist.githubusercontent.com/Korirmitchelle/6d0f79ae9d689a995fb043745a458114/raw/4efe3705da077c4ea3056a1b61c718548406391f/")
         .addConverterFactory(GsonConverterFactory.create())
         .build();
 

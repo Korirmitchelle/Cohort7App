@@ -40,7 +40,7 @@ public class ExhibitsAdapter extends ArrayAdapter<Animal> {
 
         holder.name.setText(getItem(position).getName());
         holder.species.setText(getItem(position).getgender());
-        Picasso.with(getContext()).load(getItem(position).getpicture()).into(holder.thumbnail);
+        Picasso.with(getContext()).load(getItem(position).getpicture()).fit().into(holder.thumbnail);
         return convertView;
     }
 

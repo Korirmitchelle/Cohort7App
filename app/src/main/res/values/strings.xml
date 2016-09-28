@@ -6,6 +6,6 @@
     <string name="drawer_opened">Select An Item</string>
     <string name="drawer_closed">Cohort 7</string>
     <string name="exhibits_feed">https://gist.githubusercontent.com/Korirmitchelle/6d0f79ae9d689a995fb043745a458114/raw/aed785f9f4beb65150671a913185ea5ee2030a6b</string>
-<string name="gallery_feed">https://gist.githubusercontent.com/Korirmitchelle/882b88df934bf05767d5ca6edd626f0e/raw/2859e2c137c91e3c39cc1d9d8b14980c38d65290/</string>
+    <string name="gallery_feed">https://gist.githubusercontent.com/Korirmitchelle/882b88df934bf05767d5ca6edd626f0e/raw/2859e2c137c91e3c39cc1d9d8b14980c38d65290/</string>
 </resources>
 

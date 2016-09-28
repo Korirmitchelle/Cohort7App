@@ -1,54 +1,62 @@
 package com.example.mitchelle.cohort7.fragments;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 
-import com.example.mitchelle.cohort7.models.Location;
-import com.example.mitchelle.cohort7.utils.LocationinterfaceApi;
+import com.example.mitchelle.cohort7.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by mitchelle on 9/1/16.
  */
-public class MitchMapFragment extends SupportMapFragment {
+public class MitchMapFragment extends SupportMapFragment  {
+
+    /*private GoogleMap mymap;*/
+
     public static MitchMapFragment getInstance(){
         MitchMapFragment fragment = new MitchMapFragment();
         return fragment;
+
     }
 
-    @Override
+    /*@Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        SupportMapFragment supportMapFragment=(SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        supportMapFragment.getMapAsync(this);
 
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl("https://gist.githubusercontent.com/Korirmitchelle/25b5f5031899623a387dc0f4fe22943c/raw/54e408494a80996a5dab07c4f481758710094311/")
-                .addConverterFactory(GsonConverterFactory.create())
+        CameraPosition cameraPosition=CameraPosition.builder()
+                .zoom(16f)
+                .target(new LatLng(-1.300412,36.784596))
+                .bearing(0.0f)
+                .tilt(0.0f)
                 .build();
 
+       *//* LatLng moringa=new LatLng(-1.300412,36.784596);*//*
+        mymap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        mymap.setTrafficEnabled(true);
+        mymap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-        LocationinterfaceApi locationinterfaceApi=retrofit.create(LocationinterfaceApi.class);
-        locationinterfaceApi.getStreams(new Callback<List<Location>>() {
-            @Override
-            public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
-                for (Location locations:response.body()){
-                    Log.e("Cohort", String.valueOf(locations.getLatitude()));
-                }
+        mymap.getUiSettings().setZoomControlsEnabled(true);
+        MarkerOptions options=new MarkerOptions().position(new LatLng(-1.300412,36.784596));
 
-            }
 
-            @Override
-            public void onFailure(Call<List<Location>> call, Throwable t) {
 
-            }
-        });
+
     }
+
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mymap=googleMap;
+
+    }*/
 }
